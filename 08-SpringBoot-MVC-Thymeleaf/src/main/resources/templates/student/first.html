@@ -10,9 +10,28 @@
 <h1 th:text="${surname}"></h1>
 <h1 th:text="${gender}"></h1>
 <h1 th:text="${age}"></h1>
+<h1 th:text="${student.id}"></h1>
 <h1 th:text="${name + ' '+ surname}"></h1>
 
 <h2 th:text="${student.getFirstName()}"></h2>
+
+<a th:href="@{/student/goregister}">Register Page!!!</a>
+
+
+<!--Adding parameters to link -->
+<a th:href="@{student/welcome(student.id=3)}">student 3</a>
+<a th:href="@{student/welcome(id=${student.getId()})}">Student dynamic</a>
+
+
+<!--Iteration -->
+
+<ul>
+  <li th:each="student : ${studentList}" th:text="${student.getFirstName()+' '+student.getLastName()}"></li>
+</ul>
+
+<!-- fragments-->
+
+<div th:replace="fragments/footer :: footer"></div>
 
 
 
