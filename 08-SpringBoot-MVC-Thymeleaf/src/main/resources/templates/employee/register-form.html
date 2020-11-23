@@ -57,7 +57,8 @@
                     <div class="form-group col">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" placeholder="Password"
-                               th:field="*{password}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                               th:field="*{password}"
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                         <div class="invalid-feedback">
                             Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
                         </div>
