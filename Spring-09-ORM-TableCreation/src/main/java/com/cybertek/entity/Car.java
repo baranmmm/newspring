@@ -1,7 +1,6 @@
 package com.cybertek.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Car {
@@ -12,6 +11,8 @@ public class Car {
 
     private String make;
     private String model;
+    private String transmission;
+
 
 
 }
