@@ -12,6 +12,10 @@ public class Car {
     private String make;
     private String model;
     private String transmission;
+    private long engine;
+    private int doors;
+
+
 
 
 
