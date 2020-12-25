@@ -1,4 +1,4 @@
-package com.cybertek.services;
+package com.cybertek.repository;
 
 import com.cybertek.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
