@@ -19,8 +19,9 @@ public class DataGenerator implements CommandLineRunner {
     @Autowired
     EmployeeService employeeService;
 
-//    @Autowired
-//    DepartmentService departmentService;          WE DON'T NEED departmentService and @Repository since we used Cascading.
+    @Autowired
+    DepartmentService departmentService;
+//    WE DON'T NEED departmentService and @Repository if we use Cascading.
 
     @Autowired
     RegionService regionService;
@@ -44,30 +45,39 @@ public class DataGenerator implements CommandLineRunner {
         Region r3=new Region("Central", "Asia");
         Region r4=new Region("Quebec", "Canada");
 
-        e1.setRegion(r1);
-        e2.setRegion(r2);
-        e3.setRegion(r3);
-        e4.setRegion(r4);
-
-        e1.setDepartment(d1);
-        e2.setDepartment(d2);
-        e3.setDepartment(d3);
-        e4.setDepartment(d4);
-
-//        departmentService.save(d1);
-//        departmentService.save(d2);
-//        departmentService.save(d3);
-//        departmentService.save(d4);
-
         regionService.save(r1);
         regionService.save(r2);
         regionService.save(r3);
         regionService.save(r4);
 
+        departmentService.save(d1);
+        departmentService.save(d2);
+        departmentService.save(d3);
+        departmentService.save(d4);
+
         employeeService.save(e1);
         employeeService.save(e2);
         employeeService.save(e3);
         employeeService.save(e4);
+
+        e1.setDepartment(d1);
+        e2.setDepartment(d1);
+        e3.setDepartment(d1);
+        e4.setDepartment(d4);
+
+        e1.setRegion(r1);
+        e2.setRegion(r2);
+        e3.setRegion(r3);
+        e4.setRegion(r4);
+
+        employeeService.save(e1);
+        employeeService.save(e2);
+        employeeService.save(e3);
+        employeeService.save(e4);
+
+        employeeService.delete(e1);
+
+
 
 
 
