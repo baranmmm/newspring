@@ -16,7 +16,7 @@ public class MovieCinema extends BaseEntity{
 
 
     @Column(columnDefinition = "TIMESTAMP")
-    private LocalDateTime localDateTime;
+    private LocalDateTime dateTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "movie_id")
@@ -26,8 +26,8 @@ public class MovieCinema extends BaseEntity{
     @JoinColumn(name = "cinema_id")
     private Cinema cinema;
 
-    public MovieCinema(LocalDateTime localDateTime) {
-        this.localDateTime = localDateTime;
+    public MovieCinema(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 }
 
