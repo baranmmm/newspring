@@ -1,12 +1,21 @@
 package com.cybertek.entity;
 
 import com.cybertek.enums.Gender;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees")
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Employee {
 
     @Id
@@ -15,11 +24,13 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-    private String hireDate;
+
+    @Column(columnDefinition = "DATE")
+    private LocalDate hireDate;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    private BigDecimal salary;
+    private Integer salary;
 
     @ManyToOne
     @JoinColumn(name = "department")
