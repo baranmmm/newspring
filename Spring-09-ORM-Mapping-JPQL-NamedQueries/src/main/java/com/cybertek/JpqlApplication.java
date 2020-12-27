@@ -42,6 +42,7 @@ public class JpqlApplication {
         System.out.println(departmentRepository.retrieveAllDepartments());
         System.out.println(departmentRepository.findByDivisions("Health"));
         System.out.println(departmentRepository.retrieveDepartmentByDivision("Health"));
+        System.out.println(departmentRepository.retrieveDepartmentByDivisionContains("eal"));
 
         System.out.println("-------------Department Queries Finishing--------------");
 
