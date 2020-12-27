@@ -43,7 +43,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     Employee getEmployeeByEmailAndSalaryNamedParameter(@Param("salary") Integer salary, @Param("email") String email);
 
 
-
+    List<Employee> retrieveEmployeeSalaryGreaterThan(Integer salary);
 
 
 

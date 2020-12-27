@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, String> {
 
-
-
+    List<Department> retrieveDepartmentByDivision(String division);
 
 }
