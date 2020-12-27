@@ -2,45 +2,49 @@ package com.cybertek.repository;
 
 import com.cybertek.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    //Display all employees with email address
-    List<Employee> findAllByEmail(String email);
+    @Query("select e from Employee e where e.email='dtrail8@tamu.edu'")
+    Employee getEmployeeDetails();
 
-    //Display all employees with first name "" and last name "", also show all employees with an email address ""
-    List<Employee> findByFirstNameAndLastNameOrEmail(String firstName, String lastName, String email);
+    @Query("select e.salary from Employee e where e.email='dtrail8@tamu.edu'")
+    Integer getEmployeeSalary();
 
+    @Query("select e from Employee e where e.email=?1")
+    Optional<Employee> getEmployeeByEmail(String email);
 
-    //Display all employees that first name is not ""
-    Integer countByFirstNameIsNot(String firstName);
-
-    //Display all employees where lat name starts with ""
-    List<Employee> findByLastNameStartsWith(String pattern);
-
-
-    //Display all employees with salaries higher than ""
-    List<Employee> findBySalaryGreaterThan(Integer amount);
+    @Query("select e from Employee e where e.email=?1")
+    Employee getEmployeeByEmail1(String email);
 
 
-    //Display all employees with salaries less than ""
-    List<Employee> findBySalaryLessThan(Integer amount);
+
+    //Single bind parameter
+    @Query("select e from Employee e where e.salary=?1")
+    Employee getEmployeeBySalaryBindParameter(Integer salary);
+
+    //Single named parameter
+    @Query("select e from Employee e where e.salary=:salary")
+    Employee getEmployeeBySalaryNamedParameter(@Param("salary") Integer salary);
+
+    //Multiple bind parameter
+    @Query("select e from Employee e where e.email=?1 and e.salary=?2")
+    Employee getEmployeeByEmailAndSalary(String email, Integer salary);
+
+    @Query("select e from Employee e where e.email=:email and e.salary=:salary")
+    Employee getEmployeeByEmailAndSalaryNamedParameter(@Param("salary") Integer salary, @Param("email") String email);
 
 
-    //Display all employees that has been hired between "" and ""
-    List<Employee> findByHireDateBetween(LocalDate startDate, LocalDate endDate);
 
 
-    //Display top unique 3 employees that is making less than ""
-    List<Employee> findDistinctTop3BySalaryLessThanEqual(Integer amount);
-
-    //Display all employees that do not have email address
-    List<Employee> findByEmailIsNull();
 
 
 
