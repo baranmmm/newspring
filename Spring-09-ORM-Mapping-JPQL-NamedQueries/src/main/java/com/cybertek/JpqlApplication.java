@@ -34,6 +34,7 @@ public class JpqlApplication {
         System.out.println(employeeRepository.getEmployeeDetails());
 
         System.out.println(employeeRepository.getEmployeeByEmailAndSalary("jhookd@booking.com", 126588));
+        System.out.println(employeeRepository.getEmployeeByEmailAndSalaryNamedParameter(126588, "jhookd@booking.com"));
 
         System.out.println("-------------Employee Queries Finishing--------------");
         System.out.println("-------------Department Queries Starting--------------");
